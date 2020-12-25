@@ -56,5 +56,7 @@ def general_process(data, column_headline, new_column_headline):
         print("The most rare words are : {}".format(rare))
         return texts
     data = data[data[column_headline].apply(lambda x:len(x.split())>5)]
-    data[new_column_headline] = data[column_headline].apply(preprocess_text)data[new_column_headline] = remove_rare_words(data[new_column_headline], 10)
+    data[new_column_headline] = data[column_headline].apply(preprocess_text)
+    data[new_column_headline] = remove_rare_words(data[new_column_headline], 10)
+    data[new_column_headline] = data[column_headline].apply(preprocess_text)
     return data
