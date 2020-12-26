@@ -16,32 +16,38 @@ data['year'] = [x.year for x in data['date']]
 duplica = data[data.duplicated('headline')==True]
 data = data[data.duplicated('headline')==False]
 
-# Subset of data for the years of 2018
+# Subset of headlines related to the year 2018
 data = data[data['year'] >= 2018]
 data = data.reset_index(drop=True)
 headline_data = data
 
-# preprocessing
+#We list in the toolbox all the headlines
+tup = *(headline_data['headline'][i] for i in range(len(headline_data))),
+
+# preprocessing of headlines
 headline_data = general_process(data = headline_data, column_headline="headline", new_column_headline="headline_")
 
 # Recommending
 ## Title 
 st.title("Articles Headline Recommnder Engine")
-## Image
-#img =Image.open('Headlines_image.jpg')
-#st.image(img, caption='www.depositphotos.com')
-## Headline askd from a reader
+## Sub title
 st.header('Choose an article that you heave read')
-st.subheader("You can choose from the headlines of the following link \n https://drive.google.com/file/d/1mHDG0yMs9leCjHcr6h8FX5V10EpUqBIU/view?usp=sharing")
-head_line = st.text_input('copy the headline you have just read to suggest you the similar ones')
+head_line = st.selectbox('Choose a headline',tup)
+st.write('You selected:', head_line)
+
+# Get the index of the chosen headline
+index_head = headline_data[headline_data["headline"]==head_line].index[0]
+
+# Toolbox to select a model
 MODEL = st.selectbox(
     'Choose the model you want to use for embedding headlines',
     ('nmf', 'lda', 'word2vec'))
-st.write('You selected:', model)
+st.write('You selected:', MODEL)
 
-num_suggestions = st.number_input('Insert and integer number of suggestions you want',min_value=3)
+# Toolbox to select the number of suggestion wanted
+num_suggestions = st.number_input('Insert and integer number of suggestions you want',min_value=1)
 st.write('The current number is ', num_suggestions)
 
-test = st.button("Search for recommended articles headlines")
-st.dataframe(recommender_engine(data=headline_data, headline_article=head_line, n_similar_article=num_suggestions, model=MODEL))
-st.success("Recommendation done")
+# Display the suggestions
+if st.button("Search for recommended articles headlines"):
+    st.dataframe(recommender_engine(data=headline_data, index=index_head, n_similar_article=num_suggestions, model=MODEL))

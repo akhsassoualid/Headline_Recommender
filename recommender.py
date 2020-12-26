@@ -13,11 +13,11 @@ from sklearn.metrics import pairwise_distances
 
 
 
-def recommender_engine(data, headline_article, n_similar_article, model):
+def recommender_engine(data, index, n_similar_article, model):
     # Set parameters
     nc = 25
-    target_ix = data[data['headline']==headline_article].index.tolist()[0]
-    proc_headlines = data['headline_']
+    target_ix = index
+    proc_headlines = data["headline_"]
     sentence_ix = data.index.tolist() # index each headline
   
     tfidf = TfidfVectorizer()
@@ -59,8 +59,8 @@ def recommender_engine(data, headline_article, n_similar_article, model):
                      'headline': data['headline'],
                      'similarity':similarity.ravel().tolist()})
     # Show recommendations
-    recom = df.nsmallest(n=n_similar_article, columns='similarity')
-    print("*"*20, 'Target article', "*"*50)
-    print(" "*3 + str(df['category'][target_ix])+' :', df['headline'][target_ix], " "*40)
-    print("*"*20, 'Recommended articles', "*"*44)
+    recom = df.nsmallest(n=n_similar_article+1, columns='similarity')
+    #print("*"*20, 'Target article', "*"*50)
+    #print(" "*3 + str(df['category'][target_ix])+' :', df['headline'][target_ix], " "*40)
+    #print("*"*20, 'Recommended articles', "*"*44)
     return recom.iloc[1:,]
