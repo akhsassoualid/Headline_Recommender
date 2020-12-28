@@ -16,6 +16,8 @@ colorama==0.4.4
 decorator==4.4.2
 defusedxml==0.6.0
 entrypoints==0.3
+filelock==3.0.12
+gdown==3.12.2
 gensim==3.8.3
 gitdb==4.0.5
 GitPython==3.1.11
@@ -55,6 +57,7 @@ pydeck==0.5.0
 Pygments==2.7.3
 pyparsing==2.4.7
 pyrsistent==0.17.3
+PySocks==1.7.1
 python-dateutil==2.8.1
 pytz==2020.5
 pywin32==300
@@ -62,6 +65,7 @@ pywinpty==0.5.7
 pyzmq==20.0.0
 regex==2020.11.13
 requests==2.25.1
+scikit-learn==0.24.0
 scipy==1.5.4
 Send2Trash==1.5.0
 six==1.15.0
@@ -70,12 +74,14 @@ smmap==3.0.4
 streamlit==0.73.1
 terminado==0.9.1
 testpath==0.4.4
+threadpoolctl==2.1.0
 toml==0.10.2
 toolz==0.11.1
 tornado==6.1
 tqdm==4.55.0
 traitlets==5.0.5
 tzlocal==2.1
+Unidecode==1.1.2
 urllib3==1.26.2
 validators==0.18.2
 watchdog==1.0.2
