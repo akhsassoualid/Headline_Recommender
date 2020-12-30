@@ -7,7 +7,6 @@ import matplotlib.pyplot as plt
 from recommender import recommender_engine
 from datetime import datetime
 from preprocessing import general_process
-from distribution_plots import distr_plot_by
 from PIL import Image
 # -----------------------------------------------------------------------------------
 # Import the processed dataset and orginal data
@@ -41,11 +40,15 @@ if choice == "EDA Charts":
     # Display charts
     yr = st.number_input('Insert a year',min_value=2016)
     n_data = data[data['year']==yr]
-    fig, ax = plt.subplots(figsize=(20,7))
-    st.write(sns.countplot(x="category", data = n_data, order=n_data["category"].value_counts().index), ax=ax)
-    st.title('Distribution of news catgeory on '+str(yr))
-    plt.xticks(rotation=90)
-    st.pyplot(fig)
+    if st.button("Display"):
+        fig, ax = plt.subplots(figsize=(30,15))
+        st.write(sns.countplot(x="category", data = n_data, order=n_data["category"].value_counts().index), ax=ax)
+        st.title('Distribution of headlines categories in '+str(yr))
+        ax.set_xlabel('Categories', size = 30)
+        ax.set_ylabel('Counting', size = 30)
+        plt.xticks(rotation=90, fontsize=25)
+        plt.yticks(fontsize=25)
+        st.pyplot(fig)
 
 
 elif choice == "Propose More Headlines":
@@ -67,5 +70,5 @@ elif choice == "Propose More Headlines":
     #st.write('The current number is ', num_suggestions)
     
     # Display the suggestions
-    if st.button("Search for recommendions"):
+    if st.button("Search for recommendations"):
         st.dataframe(recommender_engine(data=headline_data, index=index_head, n_similar_article=num_suggestions, model=MODEL))

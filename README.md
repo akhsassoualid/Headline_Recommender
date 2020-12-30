@@ -32,3 +32,4 @@ streamlit run app.py
 
 # Illustration of the app
 
+![Recom app](Headline_Recommender/recomm.gif "Recom app app")
