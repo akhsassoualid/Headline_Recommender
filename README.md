@@ -29,7 +29,3 @@ Run the application savec in the app.py file
 streamlit run app.py
 
 ```
-
-# Illustration of the app
-
-![Recom app](Headline_Recommender/recomm.gif "Recom app app")
