@@ -32,4 +32,4 @@ streamlit run app.py
 
 # Illustrate the application
 
-![](recom app.gif)
+![Alt text](recom_app.gif) / ![](recom_app.gif)
