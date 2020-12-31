@@ -31,5 +31,11 @@ streamlit run app.py
 ```
 
 # Illustrate the application
-
+A simple illustration of the App : 
 ![Alt text](recom_app.gif)
+
+# Special Thanks:
+* Google team of researchers for the [Word2Vec](https://github.com/tmikolov/word2vec) trained model.
+* To the team of [Streamlit](https://github.com/streamlit) for their open-source Python library to build applications.
+* To [vikashrajluhaniwal](https://medium.com/@vikashrajluhaniwal) for his tutorial about recommendation system.
+* To my friends [Rachid](https://github.com/rachideffghi) and [Salih](https://github.com/salihbout) for their help.
