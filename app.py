@@ -4,14 +4,14 @@ import pandas as pd
 import json
 import seaborn as sns
 import matplotlib.pyplot as plt
-from recommender import recommender_engine
+from Recom_Preprocess.recommender import recommender_engine
 from datetime import datetime
-from preprocessing import general_process
+from Recom_Preprocess.preprocessing import general_process
 from PIL import Image
 # -----------------------------------------------------------------------------------
 # Import the processed dataset and orginal data
-headline_data = pd.read_csv('processed_data.csv')
-data = pd.read_json('News_Category_Dataset_v2.json', lines=True)
+headline_data = pd.read_csv('./Datasets/processed_data.csv')
+data = pd.read_json('./Datasets/News_Category_Dataset_v2.json', lines=True)
 
 # Design of the App
 ## Title 
@@ -23,7 +23,7 @@ tup = tup0 + tup1
 st.title("Articles Headline Recommnder Engine")
 
 ## Add background image
-image = Image.open('Headlines_image.jpg')
+image = Image.open('./Static/Headlines_image.jpg')
 st.image(image, caption='https://www.wallpaperflare.com', use_column_width=True)
 
 # -----------------------------------------------------------------------------------
@@ -34,7 +34,7 @@ choice = st.sidebar.selectbox('Select an Option',activities)
 if choice == "EDA Charts":
     st.subheader("EXploratory Charts")
     # We import the whole data of all years
-    data = pd.read_json('News_Category_Dataset_v2.json', lines=True)
+    data = pd.read_json('./Datasets/News_Category_Dataset_v2.json', lines=True)
     data['date'] = pd.to_datetime(data.date)
     data['year'] = [x.year for x in data['date']]
     # Display charts
