@@ -32,7 +32,7 @@ streamlit run app.py
 
 # Illustrate the application
 A simple illustration of the App : 
-![Alt text](recom_app.gif)
+![Alt text](./static/recom_app.gif)
 
 # Special Thanks:
 * Google team of researchers for the [Word2Vec](https://github.com/tmikolov/word2vec) trained model.

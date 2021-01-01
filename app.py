@@ -4,14 +4,14 @@ import pandas as pd
 import json
 import seaborn as sns
 import matplotlib.pyplot as plt
-from Recom_Preprocess.recommender import recommender_engine
 from datetime import datetime
-from Recom_Preprocess.preprocessing import general_process
+from headlines_recommender.recommender import recommender_engine
+from headlines_recommender.preprocessing import general_process
 from PIL import Image
 # -----------------------------------------------------------------------------------
 # Import the processed dataset and orginal data
-headline_data = pd.read_csv('./Datasets/processed_data.csv')
-data = pd.read_json('./Datasets/News_Category_Dataset_v2.json', lines=True)
+headline_data = pd.read_csv('./datasets/processed_data.csv')
+data = pd.read_json('./datasets/News_Category_Dataset_v2.json', lines=True)
 
 # Design of the App
 ## Title 
@@ -23,7 +23,7 @@ tup = tup0 + tup1
 st.title("Articles Headline Recommnder Engine")
 
 ## Add background image
-image = Image.open('./Static/Headlines_image.jpg')
+image = Image.open('./static/Headlines_image.jpg')
 st.image(image, caption='https://www.wallpaperflare.com', use_column_width=True)
 
 # -----------------------------------------------------------------------------------
