@@ -34,6 +34,18 @@ streamlit run app.py
 A simple illustration of the App : 
 ![Alt text](./static/recom_app.gif)
 
+# Deployment on Docker
+Build the app image, execute in the command line : 
+```
+docker build -t app .
+
+```
+To the container : 
+```
+docker run -p 8501:8501 app
+
+```
+
 # Special Thanks:
 * Google team of researchers for the [Word2Vec](https://github.com/tmikolov/word2vec) trained model.
 * To the team of [Streamlit](https://github.com/streamlit) for their open-source Python library to build applications.

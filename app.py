@@ -34,7 +34,7 @@ choice = st.sidebar.selectbox('Select an Option',activities)
 if choice == "EDA Charts":
     st.subheader("EXploratory Charts")
     # We import the whole data of all years
-    data = pd.read_json('./Datasets/News_Category_Dataset_v2.json', lines=True)
+    data = pd.read_json('./datasets/News_Category_Dataset_v2.json', lines=True)
     data['date'] = pd.to_datetime(data.date)
     data['year'] = [x.year for x in data['date']]
     # Display charts
