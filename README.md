@@ -1,5 +1,5 @@
 # A Recommender Engine for headlines articles using embedded words.
-The project develop and application that suggest to reader more similar articles to the those they already read. It uses the embedding algorithms of headlines to create their own numerical representation, which allows to compute similarity between headlines and get the most similar ones.
+The project develop an application that suggest to readers more similar articles to those they already read. It uses the embedding algorithms of headlines to create their own numerical representation, which allows to compute similarity between headlines and get the most similar ones.
 
 For purpose of simplicity, we was satisfied only with headlines that concernes the year of 2018.
 
